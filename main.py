@@ -22,8 +22,8 @@ async def send_message(message):
         async with client.connect(owner_id) as chat2:
             return await chat2.send_message(char, chat, message, aut_set)
     except Exception as e:
-        # Re-raise the exception instead of returning a string
-        raise ValueError(f"Error: {str(e)}") from e
+        # Return a more informative error message
+        return f"Error: {str(e)}. Please check the API documentation for further assistance."
 
 @app.route('/chat', methods=['POST'])
 def post_chat():
