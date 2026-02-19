@@ -22,15 +22,19 @@ async def send_message(message):
         async with client.connect(owner_id) as chat2:
             return await chat2.send_message(char, chat, message, aut_set)
     except Exception as e:
-        # Return a more informative error message
-        return f"Error: {str(e)}. Please check the API documentation for further assistance."
+        # Re-raise the exception with a more informative error message
+        raise ValueError(f"Error sending message: {str(e)}")
 
 @app.route('/chat', methods=['POST'])
 def post_chat():
     if request.method == 'POST' and 'message' in request.json:
         message = request.json['message']
-        response = asyncio.run(send_message(message))
-        return jsonify({"response": response})
+        try:
+            response = asyncio.run(send_message(message))
+            return jsonify({"response": response})
+        except Exception as e:
+            # Return a generic error message instead of the original exception
+            return jsonify({"error": "Failed to send message."})
     else:
         return jsonify({"error": "Invalid request or missing 'message' in JSON payload."})
 
