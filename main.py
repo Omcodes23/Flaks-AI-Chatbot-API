@@ -23,7 +23,7 @@ async def send_message(message):
             return await chat2.send_message(char, chat, message, aut_set)
     except Exception as e:
         # Re-raise the exception with a more informative error message
-        raise ValueError(f"Error sending message: {str(e)}")
+        raise ValueError(f"Error sending message: {str(e)}") from e
 
 @app.route('/chat', methods=['POST'])
 def post_chat():
