@@ -1,6 +1,5 @@
 import asyncio
 from flask import Flask, jsonify, request
-from charaiPY.AsyncPyCAI2 import PyAsyncCAI2
 
 app = Flask(__name__)
 
@@ -9,7 +8,7 @@ char = "7yDt2WH6Y_OpaAV4GsxKcY5xIQ8QT5M0kgpDQ6VAflI"
 chat = "d2cc5852-0e70-417f-93e9-d3119b23d868"
 author_id = "486814206"
 
-aut_set ={
+aut_set = {
     "author_id": "486814206",
     "is_human": True,
     "name": "Are-you-feeling-okay"
