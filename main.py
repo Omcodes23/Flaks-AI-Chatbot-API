@@ -9,7 +9,7 @@ char = "7yDt2WH6Y_OpaAV4GsxKcY5xIQ8QT5M0kgpDQ6VAflI"
 chat = "d2cc5852-0e70-417f-93e9-d3119b23d868"
 author_id = "486814206"
 
-aut_set ={
+aut_set = {
     "author_id": "486814206",
     "is_human": True,
     "name": "Are-you-feeling-okay"
